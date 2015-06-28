@@ -1,0 +1,72 @@
+﻿@model List<Term_Project.Models.product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Viewadd</h2>
+
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Laptops</title>
+  <link rel="stylesheet" href="~/content/layout.css">
+    <link rel="stylesheet" href="~/content/style3.css">
+</head>
+     <body>
+</body>
+</html>
+@*SELECT CategoryID, CategoryName, Description, 
+       (SELECT COUNT(*) 
+            FROM Products p 
+            WHERE p.CategoryID = c.CategoryID) 
+       as NumberOfProducts
+FROM Categories c*@
+
+
+        
+
+<table border="1">
+    <tr>
+        <td>Title</td>
+        <td>Option</td>
+        <td>Description</td>
+        <td>File</td>
+        <td>Name</td>
+        <td>Contact no</td>
+        <td>Price</td>
+    </tr>
+
+    @foreach (var s in Model)
+    {
+        
+        
+        if(@s.option.Equals(ViewBag.x))
+        {
+        <tr>
+            <td>@s.tiltle</td>
+            <td>@s.option</td>
+            <td>@s.description </td>
+            <td style="height:300px; width:300px">
+
+                <img src= "@s.file" alt="error"/>
+   
+            </td>
+            <td>@s.name</td>
+            <td>@s.contactno</td>
+            <td>@s.price</td>
+
+            @*<td>
+                <a href="/Home/Update/@s.SID">Update</a>
+                <a href="/Home/Delete/@s.SID">Delete</a>
+            </td>*@
+        </tr>
+    }
+    }
+</table>
+
+
+
+

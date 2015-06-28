@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Database1Entities1" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="logins" EntityType="Database1Model.login" />
+    <EntitySet Name="products" EntityType="Database1Model.product" />
+    <AssociationSet Name="FK_products_login" Association="Database1Model.FK_products_login">
+      <End Role="login" EntitySet="logins" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="products" Relationship="Database1Model.FK_products_login" FromRole="login" ToRole="products" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tiltle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="option" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="file" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="contactno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="lid" Type="Int32" />
+    <NavigationProperty Name="login" Relationship="Database1Model.FK_products_login" FromRole="products" ToRole="login" />
+  </EntityType>
+  <Association Name="FK_products_login">
+    <End Role="login" Type="Database1Model.login" Multiplicity="0..1" />
+    <End Role="products" Type="Database1Model.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="lid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

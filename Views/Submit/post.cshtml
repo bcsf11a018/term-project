@@ -1,0 +1,79 @@
+    @{
+        Layout = "/Views/Shared/_Layout.cshtml";
+        }
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>PostToSell | Post </title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="~/content/layout.css" type="text/css" />
+
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="topbar">
+        <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+  <div id="header">
+    <div class="fl_left">
+      <h1>Submit The Post</h1>
+      
+    </div>
+    
+    <br class="clear" />
+  </div>
+</div>
+
+ <!-- ####################################################################################################### -->
+<div class="wrapper col5">
+  <div id="container">
+    <form id="f1" action="/Submit/postinfo"  method="post" enctype="multipart/form-data">
+     		<strong>Title</strong>  <input type="text" name="tiltle"/>
+  						<p>
+							<label><strong>Select field</strong> 
+								<select name="option">
+									<option>Mobile</option>
+									<option>Laptops</option>
+                                    <option>Tablets</option>
+								</select>
+							</label>
+						</p>
+
+                        <strong>Description </strong> <br /><br />
+                        <textarea cols="30" rows="5" name="description"></textarea><br /><br />
+                       <strong>File input </strong> <input type="file" name="file"/>&nbsp;&nbsp;&nbsp;<br /><br />
+                
+        <!--<input type="submit" value="Upload"  style="height:70px; width:100px ; color:black ; background-color:yellowgreen" />-->
+
+
+						<strong>Name</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name"/><br /><br />
+
+						@*<p><label>Text input (with pattern requirement and placeholder) <input type="text" pattern="\d{5}(-\d{4})?" title="a US Zip code, with or without the +4 exension" placeholder="12345-6789"></label></p>
+
+						<p><label>Email input <input type="email"></label></p>
+
+						<p><label>Search input <input type="search" results="10"></label></p>*@
+
+						<strong>Contact No</strong> <input type="text" name="contactno"/><br /><br />
+                        <strong>Price</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="price"/><br />
+                         <input type="submit" value="Submit"  style="height:70px; width:100px ; color:black ; background-color:orange" />                
+
+						@*<p><label>Radio input <input type="radio" name="rad"></label></p>
+
+						<p><label>Checkbox input <input type="checkbox"></label></p>
+
+						<p><label><input type="radio" name="rad"> Radio input</label></p>*@
+            </form>
+     </div>
+</div>
+<!-- ####################################################################################################### -->
+</body>
+</html>

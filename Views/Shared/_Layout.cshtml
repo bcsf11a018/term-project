@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="wrapper col2">
+  <div id="header">
+    <div class="fl_left">
+      <h1><a href="/Home/Index">PostToSell.com</a></h1>
+      
+    </div>
+    <div class="fl_right"> <a href="#"><img src="~/images/start.gif" alt="" /></a> </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col3">
+  <div id="topnav">
+    <ul>
+      <li class="active"><a href="/Home/Index">Homepage</a><span>Main Page</span></li>
+      <li><a href="/Home/aboutus">About Us</a><span>About Us</span></li>
+      <li><a href="/Submit/signin">Sign In</a><span>Sign In</span></li>
+      <li><a href="/Home/signup">Sign Up</a><span>Sign Up</span>
+      <li><a href="/Submit/signin">Submit Post</a><span>post</span></li>
+      <li><a href="/Home/Index">Search Product</a><span>Items</span> 
+       <ul>
+          <li><a href="/Search/mobile">Mobile</a></li>
+          <li><a href="/Search/laptops">Laptops</a></li>
+          <li><a href="/Search/tablets">Tablets</a></li>
+        </ul>
+      </li>
+      <li class="last"><a href="/Home/contactus">Contact Us</a><span>Detail Info</span></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col4">
+  <div id="featured_slide">
+    <div id="featured_content">
+      <ul>
+        <li><a href="#"><img src="~/images/m1.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/m2.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/l1.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/l2.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/t1.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/t2.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/m1.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/m2.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/l1.gif" alt="" /></a></li>
+        <li><a href="#"><img src="~/images/l2.gif" alt="" /></a></li>
+      
+      </ul>
+    </div>
+    <a href="javascript:void(0);" id="featured-item-prev"><img src="~/images/prev.png" alt="" /></a> <a href="javascript:void(0);" id="featured-item-next"><img src="~/images/next.png" alt="" /></a>
+  </div>
+</div>
+
+    @RenderBody()
+
+    <div class="wrapper col6">
+  <div id="footer">
+    <div id="newsletter">
+      <h2>Stay In The Know !</h2>
+      <p>Please enter your email to join our mailing list</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>News Letter</legend>
+          <input type="text" value="Enter Email Here&hellip;"  onfocus="this.value=(this.value=='Enter Email Here&hellip;')? '' : this.value ;" />
+          <input type="submit" name="news_go" id="news_go" value="GO" />
+        </fieldset>
+      </form>
+      <p>To unsubscribe please <a href="#">click here &raquo;</a></p>
+    </div>
+    <div class="footbox">
+      <h2>Mobiles</h2>
+      <ul>
+        <li><a href="#">Huwaei</a></li>
+        <li><a href="#">Samsung</a></li>
+        <li><a href="#">Iphone</a></li>
+        <li class="last"><a href="#">QMobile</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Laptops</h2>
+      <ul>
+        <li><a href="#">Hp</a></li>
+        <li><a href="#">Dell</a></li>
+        <li><a href="#">Lenovo</a></li>
+        <li class="last"><a href="#">Vostrov</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <h2>Tablets</h2>
+      <ul>
+        <li><a href="#">Apple Tablets</a></li>
+        <li><a href="#">Hudl 2</a></li>
+        <li class="last"><a href="#">Microsoft</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col7">
+  <div id="copyright">
+    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <div class="row"><center><br/><br/>&copy; Allright reserved. <a href="https://www.facebook.com/hassan.zbutt">Hassan Zulfiqar Butt</a> <br/> <br/></center></div>
+    <br class="clear" />
+  </div>
+</div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

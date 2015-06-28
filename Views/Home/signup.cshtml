@@ -1,0 +1,94 @@
+﻿@model Term_Project.Models.login
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+        }
+
+
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="~/content/layout.css">
+    <link rel="stylesheet" href="~/content/style3.css">
+
+  
+  
+</head>
+
+<body>
+
+    <div class="container">
+    <section class="register">
+        <h1>SignUP Page</h1>
+
+     @using (Html.BeginForm("signupinfo", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <div >
+            @Html.LabelFor(model => model.username)
+        </div>
+        
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.username, new { placeholder="Username"})
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+         
+         <input type="button" name="check" id="b1" value="Check Availability"><p id="p1" style="color:red"></p><br />@* 
+         
+          <div class="editor-label">
+            @Html.LabelFor(model => model.password )
+        </div>*@
+        <div class="editor-field">
+             @Html.PasswordFor(model => model.password, new { placeholder="Password"})
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+         
+         <div class="editor-field">
+             @Html.TextBoxFor(model => model.email, new { placeholder="Email"})
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+         
+         <div class="editor-field">
+             @Html.TextBoxFor(model => model.address, new { placeholder="Address"})
+            @Html.ValidationMessageFor(model => model.address)
+        </div>
+
+
+         <p class="submit"><input type="submit" name="signup" value="Sign Up"></p>
+    }
+       @* @Html.ActionLink("Sign Up", "signup" , "Home")*@
+         </section>
+  </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+           @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#b1').click(function () {
+
+                var userName = $('#username').val();
+
+               //Actionmethod ? parameter name
+                $.getJSON("/Home/CheckUserName?UserName=" + userName, function (data) {
+                   
+                    //if (data) {
+                        $('#p1').text(data);
+
+                });
+
+            });
+
+        });
+    </script>
+  
+</body>
+</html>

@@ -1,0 +1,115 @@
+﻿@*@model List<Term_Project.Models.product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mobile</title>
+  <link rel="stylesheet" href="~/content/layout.css">
+    <link rel="stylesheet" href="~/content/style3.css">
+</head>
+     <body>
+         <div> <ul id="b1">
+          <li><a href="#" id="m1">Mobile</a></li>
+          <li><a href="#" id="l1">Laptops</a></li>
+          <li><a href="#" id="t1">Tablets</a></li>
+        </ul></div>
+
+         
+           @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#b1').click(function () {
+
+                var search = $('#username').val();
+
+                //Actionmethod ? parameter name
+                $.getJSON("/Home/CheckSearch?Search=" + search, function (data) {
+
+                    
+                   $('<table border="1">')
+                        '<tr>'
+                            '<td>Title</td>'
+                            '<td>Option</td>'
+                            '<td>Description</td>'
+                            '<td>File</td>'
+                            '<td>Name</td>'
+                            '<td>Contact no</td>'
+                            '<td>Price</td>'
+                            '</tr>''</table>') 
+                    
+    @foreach (var item in Model)
+    {
+        
+        
+        
+        if(@item.option.Equals(ViewBag.x))
+        {
+      //var r= $('<tr><td>@s.tiltle</td><td>@s.option</td> <td>@s.description </td> <td style="height:300px; width:300px"> <img src= "@s.file" alt="error"/> </td><td>@s.name</td><td>@s.contactno</td><td>@s.price</td> </tr> ');
+          $("#t2").append("<tr ><td>" + item.tiltle + "</td><td>" + item.option + "</td><td>" + item.description + "</td><td>" + item.name + "</td><td>"+ "<img src=~/Images/" +"'"+ item.file +"'" +"height=100 width=100> </td>" + "</tr>"); 
+            
+
+                
+   
+           
+
+    
+    }
+    }
+
+
+
+                });
+
+            });
+
+        });
+    </script>
+
+         
+<table border="1" id="t2">
+    <tr>
+        <td>Title</td>
+        <td>Option</td>
+        <td>Description</td>
+        <td>File</td>
+        <td>Name</td>
+        <td>Contact no</td>
+        <td>Price</td>
+    </tr>
+
+    @foreach (var s in Model)
+    {
+        
+        <!--<img src="/pics/t1.gif" alt="error"/>-->
+        
+        if(@s.option.Equals(ViewBag.x))
+        {
+        <tr>
+            <td>@s.tiltle</td>
+            <td>@s.option</td>
+            <td>@s.description </td>
+            <td style="height:300px; width:300px">
+
+                <img src= "@s.file" alt="error"/>
+   
+            </td>
+            <td>@s.name</td>
+            <td>@s.contactno</td>
+            <td>@s.price</td>
+
+            @*<td>
+                <a href="/Home/Update/@s.SID">Update</a>
+                <a href="/Home/Delete/@s.SID">Delete</a>
+            </td>*@
+
+
+
+        
+
